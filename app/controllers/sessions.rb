@@ -1,5 +1,3 @@
-require 'pry'
-
 post '/login' do
   user = User.authenticate(params["email"], params["password"])
 

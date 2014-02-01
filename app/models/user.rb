@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   validates :email, uniqueness: true, format: {with: /\A([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})\z/, message: "not a valid email"}
-  validates :password, format: { with: /\A((?=.*[^a-zA-Z])(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{3,})\z/, message: "not a valid password" }
+  validates :password, format: { with: /\A((?=.*[^a-zA-Z])(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,})\z/, message: "not a valid password" }
   validates :name, presence: true
 
   has_many :posts
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def self.session(value)
-    @user = User.find(session[:value]) if value.is_a?(Integer)
+    @user = User.find(value) if value.is_a?(Integer)
   end
 
 end

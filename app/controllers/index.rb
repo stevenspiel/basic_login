@@ -1,6 +1,3 @@
-require 'pry'
-
-
 get '/' do
   if session[:value]
     redirect to('/dashboard')

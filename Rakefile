@@ -99,7 +99,7 @@ namespace :db do
   end
 
   desc "Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
-  task :migrate do
+  task :migrate => [:create] do
     ActiveRecord::Migrator.migrations_paths << File.dirname(__FILE__) + 'db/migrate'
     ActiveRecord::Migration.verbose = ENV["VERBOSE"] ? ENV["VERBOSE"] == "true" : true
     ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, ENV["VERSION"] ? ENV["VERSION"].to_i : nil) do |migration|
@@ -108,12 +108,12 @@ namespace :db do
   end
 
   desc "Populate the database with dummy data by running db/seeds.rb"
-  task :seed => [:create, :migrate] do
+  task :seed do
     require APP_ROOT.join('db', 'seeds.rb')
   end
 
   desc "Reset database"
-  task :reset => [:drop, :seed] do
+  task :reset => [:drop, :migrate] do
   end
 
   desc "Returns the current schema version number"
