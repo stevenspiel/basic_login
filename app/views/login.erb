@@ -1,0 +1,8 @@
+<h1>Login</h1>
+<form action="/login" method="post">
+  <div class="error"><%= View.invalid if @invalid %></div>
+
+  Email: <input type="text" name="email"><br>
+  Password: <input type="password" name="password"><br><br>
+  <input type="submit"  value="login"><br><br>
+</form>

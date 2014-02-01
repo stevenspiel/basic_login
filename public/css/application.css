@@ -1,0 +1,41 @@
+.container {
+  margin: 10px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+th {
+  text-align: left;
+}
+#logo {
+  text-align: center;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  color: #fff;
+  font-size: 2em;
+  min-height: 1.2em;
+}
+
+#logo>a, #user>a, #site>a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#user {
+  float:right;
+  color: #fff;
+  font-size: .4em;
+  line-height: 100%;
+  padding-top:13px;
+}
+
+#site {
+  float:left;
+  color: #fff;
+  font-size: .4em;
+  line-height: 100%;
+  padding-top:13px;
+}
